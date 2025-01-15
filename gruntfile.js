@@ -44,7 +44,7 @@ module.exports = function(grunt) {
                 files:[
                     {
                         expand: true,
-                        flattend: true,
+                        flatten: true,
                         src: ['src/index.html'],
                         dest:'dev/'
                     }
@@ -66,7 +66,7 @@ module.exports = function(grunt) {
                 files:[
                     {
                         expand: true,
-                        flattend: true,
+                        flatten: true,
                         src: ['prebuild/index.html'],
                         dest:'dist/'
                     }
@@ -84,6 +84,8 @@ module.exports = function(grunt) {
                 }
             }
         },
+        clean:['prebuild'],
+        
         uglify: {
             target: {
                 files: {
@@ -99,6 +101,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     
 
     grunt.registerTask('default', ['watch']);
